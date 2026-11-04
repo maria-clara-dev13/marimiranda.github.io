@@ -3,7 +3,7 @@
    ========================================================== */
 
 // Troque pelo seu e-mail real
-const CONTACT_EMAIL = 'mariaclara.dev@exemplo.com';
+const CONTACT_EMAIL = 'mirandaclara03@gmail.com';
 
 /* ---------- 1. Efeito de digitação ---------- */
 const phrases = [
@@ -113,40 +113,36 @@ function setupFilter({ tabSelector, cardSelector, displayValue }) {
 /* ---------- 4. Modais ---------- */
 const projectData = {
     1: {
-        title: 'Portal de Apoio Social',
-        category: 'Desenvolvimento Web & REST API',
-        description: 'Este projeto foi idealizado para conectar pessoas e ONGs que precisam de apoio comunitário. Oferece um formulário dinâmico, lista interativa de necessidades e integração com serviços simulados de doação.',
-        techs: ['HTML5', 'CSS3', 'JavaScript ES6', 'REST APIs', 'Git/GitHub'],
-        features: [
-            'Validação completa de formulários em JavaScript',
-            'Layout responsivo focado em acessibilidade mobile',
-            'Integração simulada com endpoints REST para cadastro de solicitações'
-        ],
-        link: 'https://github.com'
+        title: 'Quebra Cabeça de 8 pastilhas',
+        category: 'Desenvolvido em um trabalho acadêmico.',
+        description: 'Este é um jogo de quebra cabeça de números, cujo objetivo é colocar os números embaralhados em ordem crescente, respeitando a regra do jogo.',
+        techs: ['C', 'Git/GitHub'],
+      
+        link: 'https://github.com/maria-clara-dev13/quebra-cabeca-8-pastilhas'
     },
     2: {
-        title: 'Labyrinth Engine (C)',
-        category: 'Algoritmos & Projeto de Terminal',
-        description: 'Jogo de labirinto via linha de comando programado do zero em Linguagem C. O objetivo é testar conceitos avançados de estruturas de dados, matrizes dinâmicas e gerenciamento manual de memória com ponteiros.',
+        title: 'Sudoku',
+        category: 'Algoritmos e estrutura de dados',
+        description: 'O Sudoku é um jogo de raciocínio e lógica que, além de tudo, é divertido. Nele, o jogador deve preencher os espaços em branco com números de 1 a 9, de forma que nenhum número se repita em cada linha ou coluna.',
         techs: ['Linguagem C', 'Ponteiros & Malloc', 'Compilador GCC', 'Linux Terminal'],
         features: [
             'Alocação e liberação correta de memória (zero memory leak)',
             'Sistema de salvamento de mapas via arquivos de texto',
             'Interface interativa direto no terminal Linux/Windows'
         ],
-        link: 'https://github.com'
+        link: 'https://github.com/maria-clara-dev13/sudoku_c'
     },
     3: {
-        title: 'StudyTracker Mobile Concept',
-        category: 'UI/UX & Estudo Mobile',
-        description: 'Estudo de caso focado na prototipagem e desenvolvimento da arquitetura de um aplicativo para acompanhamento de tarefas acadêmicas e cronogramas de prova.',
-        techs: ['Figma', 'React Native (Conceitual)', 'Design de Interfaces'],
+        title: 'Religare',
+        category: 'Desenvolvimento web',
+        description: 'Projeto desenvolvido em grupo com o intuito de humanizar a inteligência artificial, tendo em vista o humanismo cristão.',
+        techs: ['Figma', 'Vercel', 'Design de Interfaces'],
         features: [
-            'Fluxo de navegação otimizado para estudantes',
-            'Componentização e design system escuro',
-            'Modo timer Pomodoro integrado ao protótipo'
+            'Dignidade',
+            'Humanizar a inteligência artificial',
+            'Humanismo Cristão'
         ],
-        link: 'https://github.com'
+        link: 'https://github.com/maria-clara-dev13/Religare'
     }
 };
 
@@ -236,8 +232,8 @@ function downloadCv() {
     const text = [
         'CURRÍCULO - MARIA CLARA',
         'Estudante de Ciência da Computação (PUC Minas)',
-        `E-mail: ${CONTACT_EMAIL}`,
-        'GitHub: github.com/mariaclara',
+        `E-mail: $mirandaclara03@gmail.com`,
+        'GitHub: github.com/maria-clara-dev13',
         '',
         'Resumo:',
         'Estudante em busca de estágio com foco em C/C++, Java e Desenvolvimento Web.'
