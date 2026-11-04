@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio de Maria Clara, estudante de Ciência da Computação na PUC Minas, com projetos em C/C++, Java e desenvolvimento web. Em busca de estágio em TI.">
+    <meta name="theme-color" content="#0b0f19">
+    <title>Maria Clara | Dev Portfolio - Ciência da Computação</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%BB%3C/text%3E%3C/svg%3E">
+
+    <!-- Tailwind CSS (CDN) + configuração -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind-config.js"></script>
+
+    <!-- Ícones e fontes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Estilos customizados -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-darkBg text-gray-200 antialiased selection:bg-neonPurple selection:text-white">
+
+    <!-- Decoração de fundo -->
+    <div class="fixed inset-0 pointer-events-none z-0 opacity-20" aria-hidden="true">
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-neonPurple/20 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-neonBlue/20 rounded-full blur-[100px]"></div>
+    </div>
+
+    <!-- CABEÇALHO / NAVEGAÇÃO -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-darkBg/80 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3 group" aria-label="Maria Clara — início">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-neonPurple to-neonBlue flex items-center justify-center font-mono font-bold text-lg text-white shadow-lg group-hover:scale-105 transition-transform">
+                    &lt;MC/&gt;
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-lg text-white tracking-wide group-hover:text-neonPurple transition-colors">Maria Clara</span>
+                    <span class="text-xs font-mono text-gray-400">Computer Science Student</span>
+                </div>
+            </a>
+
+            <!-- Navegação desktop -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium" aria-label="Principal">
+                <a href="#about" class="hover:text-neonPurple transition-colors">Sobre Mim</a>
+                <a href="#skills" class="hover:text-neonPurple transition-colors">Habilidades</a>
+                <a href="#projects" class="hover:text-neonPurple transition-colors">Projetos</a>
+                <a href="#education" class="hover:text-neonPurple transition-colors">Formação</a>
+                <a href="#contact" class="hover:text-neonPurple transition-colors">Contato</a>
+            </nav>
+
+            <!-- Botões de ação -->
+            <div class="hidden md:flex items-center space-x-4">
+                <button type="button" data-open-cv class="px-4 py-2 text-xs font-mono font-semibold rounded-lg bg-gray-800 hover:bg-gray-700 text-neonCyan border border-neonCyan/30 hover:border-neonCyan transition-all flex items-center gap-2">
+                    <i class="fas fa-file-arrow-down" aria-hidden="true"></i> Currículo
+                </button>
+                <a href="#contact" class="px-4 py-2 text-xs font-mono font-semibold rounded-lg bg-gradient-to-r from-neonPurple to-neonBlue hover:opacity-90 text-white shadow-md hover:shadow-neonPurple/30 transition-all">
+                    Contratar
+                </a>
+            </div>
+
+            <!-- Botão do menu mobile -->
+            <button type="button" id="mobileMenuBtn" class="md:hidden text-gray-300 hover:text-white text-2xl" aria-label="Abrir menu" aria-controls="mobileMenu" aria-expanded="false">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+        </div>
+
+        <!-- Menu mobile -->
+        <div id="mobileMenu" class="hidden md:hidden bg-darkCard border-b border-gray-800 px-6 py-4 space-y-4 text-sm font-medium">
+            <a href="#about" class="block hover:text-neonPurple transition-colors mobile-link">Sobre Mim</a>
+            <a href="#skills" class="block hover:text-neonPurple transition-colors mobile-link">Habilidades</a>
+            <a href="#projects" class="block hover:text-neonPurple transition-colors mobile-link">Projetos</a>
+            <a href="#education" class="block hover:text-neonPurple transition-colors mobile-link">Formação</a>
+            <a href="#contact" class="block hover:text-neonPurple transition-colors mobile-link">Contato</a>
+            <div class="pt-2 flex flex-col gap-2">
+                <button type="button" data-open-cv class="w-full py-2 text-center font-mono text-xs rounded-lg bg-gray-800 text-neonCyan border border-neonCyan/30">
+                    <i class="fas fa-file-arrow-down" aria-hidden="true"></i> Visualizar Currículo
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32 py-12">
+
+        <!-- 1. HERO -->
+        <section class="min-h-[80vh] flex flex-col justify-center items-center text-center pt-8">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neonPurple/10 border border-neonPurple/30 text-neonPurple text-xs font-mono mb-8 animate-pulse">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block"></span>
+                Busco Estágio e Oportunidades em TI &amp; Software
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                Olá, eu sou <span class="text-gradient">Maria Clara</span>
+            </h1>
+
+            <!-- Efeito de digitação -->
+            <div class="h-12 text-lg sm:text-2xl font-mono text-gray-300 mb-8 flex items-center justify-center gap-2" aria-live="off">
+                <span class="text-neonCyan">&gt;</span>
+                <span id="typingText" class="cursor-blink text-neonPurple font-semibold">Desenvolvedora C / C++ / Web</span>
+            </div>
+
+            <p class="max-w-2xl text-gray-400 text-base sm:text-lg mb-10 leading-relaxed">
+                Estudante de <strong class="text-gray-200">Ciência da Computação</strong>. Entusiasta em construir sistemas robustos, algoritmos eficientes e soluções web completas. Apaixonada por resolução de problemas complexos, C/C++, Java e Cibersegurança.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <a href="#projects" class="px-6 py-3 rounded-xl bg-gradient-to-r from-neonPurple to-neonBlue text-white font-medium shadow-lg hover:shadow-neonPurple/40 hover:-translate-y-0.5 transition-all flex items-center gap-2">
+                    <i class="fas fa-code" aria-hidden="true"></i> Explore os Projetos
+                </a>
+                <a href="#contact" class="px-6 py-3 rounded-xl bg-darkCard border border-gray-700 hover:border-gray-500 text-gray-200 font-medium hover:-translate-y-0.5 transition-all flex items-center gap-2">
+                    <i class="far fa-paper-plane" aria-hidden="true"></i> Fazer Contato
+                </a>
+            </div>
+
+            <!-- Redes sociais -->
+            <div class="flex items-center gap-6 mt-16 text-gray-400">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-neonPurple text-2xl transition-colors" title="GitHub" aria-label="GitHub">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-neonBlue text-2xl transition-colors" title="LinkedIn" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a href="mailto:mariaclara.dev@exemplo.com" class="hover:text-neonCyan text-2xl transition-colors" title="E-mail" aria-label="E-mail">
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                </a>
+            </div>
+        </section>
+
+
+        <!-- 2. SOBRE MIM -->
+        <section id="about" class="scroll-mt-28">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Caixa visual -->
+                <div class="lg:col-span-5 relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-neonPurple to-neonCyan rounded-2xl blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
+                    <div class="relative bg-darkCard border border-gray-800 rounded-2xl p-6 sm:p-8 space-y-6">
+                        <div class="flex items-center justify-between border-b border-gray-800 pb-4">
+                            <span class="font-mono text-xs text-neonCyan">// Perfil Acadêmico</span>
+                            <div class="flex space-x-1.5" aria-hidden="true">
+                                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3 font-mono text-sm text-gray-300">
+                            <p><span class="text-neonPurple">const</span> developer = {</p>
+                            <p class="pl-4"><span class="text-blue-400">nome</span>: <span class="text-emerald-400">'Maria Clara'</span>,</p>
+                            <p class="pl-4"><span class="text-blue-400">curso</span>: <span class="text-emerald-400">'Ciência da Computação'</span>,</p>
+                            <p class="pl-4"><span class="text-blue-400">universidade</span>: <span class="text-emerald-400">'PUC Minas'</span>,</p>
+                            <p class="pl-4"><span class="text-blue-400">foco</span>: [<span class="text-emerald-400">'Engenharia de Software'</span>, <span class="text-emerald-400">'C/C++'</span>, <span class="text-emerald-400">'Segurança'</span>],</p>
+                            <p class="pl-4"><span class="text-blue-400">disponibilidade</span>: <span class="text-amber-400">true</span></p>
+                            <p>};</p>
+                        </div>
+
+                        <div class="pt-4 border-t border-gray-800 flex justify-between text-xs font-mono text-gray-400">
+                            <span>Status: Em Busca de Estágio</span>
+                            <span class="text-neonPurple">Belo Horizonte, MG</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Biografia -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-block px-3 py-1 rounded-md bg-neonBlue/10 border border-neonBlue/30 text-neonBlue text-xs font-mono">
+                        Conheça minha trajetória
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+                        Transformando teoria acadêmica em <span class="text-gradient">código de alto impacto</span>.
+                    </h2>
+                    <p class="text-gray-300 leading-relaxed">
+                        Sou estudante de Bacharelado em Ciência da Computação, movida pela curiosidade de entender como os sistemas funcionam por baixo do capô. Tenho forte embasamento em <strong class="text-white">Estruturas de Dados, Algoritmos, Gerenciamento de Memória e Arquitetura de Computadores</strong>.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        No meu tempo livre e na universidade, desenvolvo jogos/aplicações em <strong class="text-gray-200">C e C++</strong>, crio APIs REST organizadas e estudo conceitos modernos de <strong class="text-gray-200">Cibersegurança e Inteligência Artificial</strong>. Busco uma oportunidade de estágio onde eu possa somar com meu rigor analítico, dedicação e paixão por boas práticas de programação.
+                    </p>
+
+                    <!-- Pilares -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4">
+                        <div class="p-4 rounded-xl bg-darkCard border border-gray-800">
+                            <i class="fas fa-microchip text-neonPurple text-xl mb-2" aria-hidden="true"></i>
+                            <h4 class="font-semibold text-white text-sm">Baixo Nível &amp; C</h4>
+                            <p class="text-xs text-gray-400 mt-1">Ponteiros, memória e performance.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-darkCard border border-gray-800">
+                            <i class="fas fa-layer-group text-neonBlue text-xl mb-2" aria-hidden="true"></i>
+                            <h4 class="font-semibold text-white text-sm">Fullstack Dev</h4>
+                            <p class="text-xs text-gray-400 mt-1">APIs REST e interfaces web modernas.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-darkCard border border-gray-800">
+                            <i class="fas fa-shield-halved text-neonCyan text-xl mb-2" aria-hidden="true"></i>
+                            <h4 class="font-semibold text-white text-sm">Segurança &amp; IA</h4>
+                            <p class="text-xs text-gray-400 mt-1">Aprendizado contínuo &amp; boas práticas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 3. HABILIDADES -->
+        <section id="skills" class="scroll-mt-28 space-y-8">
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="text-xs font-mono text-neonPurple uppercase tracking-wider">// Competências</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Habilidades &amp; Tecnologias</h2>
+                <p class="text-gray-400 text-sm mt-2">Filtre por categoria para ver o nível e a aplicação prática de cada tecnologia.</p>
+            </div>
+
+            <!-- Abas de categoria -->
+            <div class="flex justify-center gap-2 sm:gap-4 flex-wrap" role="group" aria-label="Filtrar habilidades">
+                <button type="button" data-filter="all" aria-pressed="true" class="skill-tab px-4 py-2 rounded-xl text-xs font-mono font-semibold bg-neonPurple text-white transition-all">Todas</button>
+                <button type="button" data-filter="lang" aria-pressed="false" class="skill-tab px-4 py-2 rounded-xl text-xs font-mono font-semibold bg-darkCard text-gray-400 hover:text-white border border-gray-800 transition-all">Linguagens</button>
+                <button type="button" data-filter="tools" aria-pressed="false" class="skill-tab px-4 py-2 rounded-xl text-xs font-mono font-semibold bg-darkCard text-gray-400 hover:text-white border border-gray-800 transition-all">Ferramentas &amp; Dev</button>
+                <button type="button" data-filter="learning" aria-pressed="false" class="skill-tab px-4 py-2 rounded-xl text-xs font-mono font-semibold bg-darkCard text-gray-400 hover:text-white border border-gray-800 transition-all">Em Aprendizado</button>
+            </div>
+
+            <!-- Grade de habilidades -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="skillsGrid">
+
+                <!-- C / C++ -->
+                <div class="skill-card lang bg-darkCard border border-gray-800 hover:border-neonPurple/50 rounded-2xl p-6 transition-all hover:-translate-y-1">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 font-mono font-bold">C++</div>
+                            <div>
+                                <h3 class="font-semibold text-white">C / C++</h3>
+                                <span class="text-xs text-gray-400 font-mono">Avançado / Acadêmico</span>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono text-neonPurple">85%</span>
+                    </div>
+                    <p class="text-xs text-gray-400 mb-4">Estrutura de dados avançada, gerenciamento manual de memória, ponteiros, ordenação e jogos via terminal.</p>
+                    <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden" role="progressbar" aria-label="Nível em C / C++" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                        <div class="bg-gradient-to-r from-neonPurple to-neonBlue h-full rounded-full" style="width: 85%"></div>
+                    </div>
+                </div>
+
+                <!-- Java -->
+                <div class="skill-card lang bg-darkCard border border-gray-800 hover:border-neonPurple/50 rounded-2xl p-6 transition-all hover:-translate-y-1">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400 font-mono font-bold">
+                                <i class="fab fa-java text-xl" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white">Java</h3>
+                                <span class="text-xs text-gray-400 font-mono">Intermediário</span>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono text-neonPurple">75%</span>
+                    </div>
+                    <p class="text-xs text-gray-400 mb-4">Programação Orientada a Objetos (POO), coleções, tratamento de exceções e projetos acadêmicos.</p>
+                    <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden" role="progressbar" aria-label="Nível em Java" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                        <div class="bg-gradient-to-r from-neonPurple to-neonBlue h-full rounded-full" style="width: 75%"></div>
+                    </div>
+                </div>
+
+                <!-- JavaScript / Web -->
+                <div class="skill-card lang bg-darkCard border border-gray-800 hover:border-neonPurple/50 rounded-2xl p-6 transition-all hover:-translate-y-1">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 font-mono font-bold">JS</div>
+                            <div>
+                                <h3 class="font-semibold text-white">JavaScript / Web</h3>
+                                <span class="text-xs text-gray-400 font-mono">HTML5 / CSS3 / ES6+</span>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono text-neonPurple">80%</span>
+                    </div>
+                    <p class="text-xs text-gray-400 mb-4">Desenvolvimento frontend responsivo, manipulação do DOM, Fetch API e consumo de REST APIs.</p>
+                    <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden" role="progressbar" aria-label="Nível em JavaScript / Web" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                        <div class="bg-gradient-to-r from-neonPurple to-neonBlue h-full rounded-full" style="width: 80%"></div>
+                    </div>
+                </div>
+
+                <!-- Git & GitHub -->
+                <div class="skill-card tools bg-darkCard border border-gray-800 hover:border-neonBlue/50 rounded-2xl p-6 transition-all hover:-translate-y-1">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-400 font-mono font-bold">
+                                <i class="fab fa-git-alt text-xl" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white">Git &amp; GitHub</h3>
+                                <span class="text-xs text-gray-400 font-mono">Controle de Versão</span>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono text-neonBlue">85%</span>
+                    </div>
+                    <p class="text-xs text-gray-400 mb-4">Versionamento de código, gestão de branches, Pull Requests e fluxo de trabalho colaborativo.</p>
+                    <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden" role="progressbar" aria-label="Nível em Git e GitHub" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                        <div class="bg-gradient-to-r from-neonBlue to-neonCyan h-full rounded-full" style="width: 85%"></div>
+                    </div>
+                </div>
+
+                <!-- Linux & Neovim -->
+                <div class="skill-card tools bg-darkCard border border-gray-800 hover:border-neonBlue/50 rounded-2xl p-6 transition-all hover:-translate-y-1">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-mono font-bold">
+                                <i class="fab fa-linux text-xl" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white">Linux &amp; Neovim</h3>
+                                <span class="text-xs text-gray-400 font-mono">Ambiente de Dev</span>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono text-neonBlue">70%</span>
+                    </div>
+                    <p class="text-xs text-gray-400 mb-4">Uso de Shell/Bash, compilação via GCC/Make, ambiente customizado no Neovim e Ubuntu.</p>
+                    <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden" role="progressbar" aria-label="Nível em Linux e Neovim" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                        <div class="bg-gradient-to-r from-neonBlue to-neonCyan h-full rounded-full" style="width: 70%"></div>
+                    </div>
+                </div>
+
+                <!-- Cibersegurança & IA -->
+                <div class="skill-card learning bg-darkCard border border-gray-800 hover:border-neonCyan/50 rounded-2xl p-6 transition-all hover:-translate-y-1">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 font-mono font-bold">
+                                <i class="fas fa-brain text-xl" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white">Cibersegurança &amp; IA</h3>
+                                <span class="text-xs text-gray-400 font-mono">Interesse &amp; Estudos</span>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono text-neonCyan">60%</span>
+                    </div>
+                    <p class="text-xs text-gray-400 mb-4">Fundamentos de redes, OWASP, conceitos iniciais de aprendizado de máquina e IA generativa.</p>
+                    <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden" role="progressbar" aria-label="Nível em Cibersegurança e IA" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                        <div class="bg-gradient-to-r from-neonCyan to-emerald-400 h-full rounded-full" style="width: 60%"></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 4. PROJETOS -->
+        <section id="projects" class="scroll-mt-28 space-y-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-gray-800 pb-6">
+                <div>
+                    <span class="text-xs font-mono text-neonPurple uppercase tracking-wider">// Portfólio Prático</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Projetos em Destaque</h2>
+                </div>
+
+                <!-- Filtros -->
+                <div class="flex items-center gap-2 flex-wrap" role="group" aria-label="Filtrar projetos">
+                    <button type="button" data-filter="all" aria-pressed="true" class="proj-tab px-3 py-1.5 rounded-lg text-xs font-mono bg-neonPurple text-white">Todos</button>
+                    <button type="button" data-filter="cpp" aria-pressed="false" class="proj-tab px-3 py-1.5 rounded-lg text-xs font-mono bg-darkCard text-gray-400 hover:text-white border border-gray-800">C / C++</button>
+                    <button type="button" data-filter="web" aria-pressed="false" class="proj-tab px-3 py-1.5 rounded-lg text-xs font-mono bg-darkCard text-gray-400 hover:text-white border border-gray-800">Web / APIs</button>
+                    <button type="button" data-filter="featured" aria-pressed="false" class="proj-tab px-3 py-1.5 rounded-lg text-xs font-mono bg-darkCard text-gray-400 hover:text-white border border-gray-800">Destaques</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectsGrid">
+
+                <!-- Projeto 1: Portal Apoio Social -->
+                <article class="project-card web featured group bg-darkCard border border-gray-800 hover:border-neonPurple/60 rounded-2xl overflow-hidden flex flex-col transition-all hover:-translate-y-1.5">
+                    <div class="h-48 bg-gradient-to-br from-purple-950/40 to-darkCard relative p-6 flex flex-col justify-between border-b border-gray-800">
+                        <div class="flex justify-between items-start">
+                            <span class="px-2.5 py-1 rounded-md bg-neonPurple/20 text-neonPurple text-[10px] font-mono border border-neonPurple/30">Web &amp; API</span>
+                            <i class="fas fa-hand-holding-heart text-3xl text-neonPurple/40" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-neonPurple transition-colors">Portal Apoio Social</h3>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Aplicação Web completa para conectar ONGs e voluntários. Sistema de cadastro, gerenciamento de doações e consumo de REST API simulada.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2 py-1 rounded bg-gray-800 text-[10px] font-mono text-gray-300">HTML5 / CSS3</span>
+                            <span class="px-2 py-1 rounded bg-gray-800 text-[10px] font-mono text-gray-300">JavaScript</span>
+                            <span class="px-2 py-1 rounded bg-gray-800 text-[10px] font-mono text-gray-300">REST API</span>
+                            <span class="px-2 py-1 rounded bg-gray-800 text-[10px] font-mono text-gray-300">Git/GitHub</span>
+                        </div>
+                        <div class="pt-4 border-t border-gray-800 flex items-center justify-between text-xs font-mono">
+                            <button type="button" data-project="1" class="text-neonPurple hover:underline flex items-center gap-1">
+                                <i class="fas fa-circle-info" aria-hidden="true"></i> Detalhes
+                            </button>
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white flex items-center gap-1">
+                                <i class="fab fa-github" aria-hidden="true"></i> Código
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Projeto 2: Labyrinth Engine -->
+                <article class="project-card cpp featured group bg-darkCard border border-gray-800 hover:border-neonBlue/60 rounded-2xl overflow-hidden flex flex-col transition-all hover:-translate-y-1.5">
+                    <div class="h-48 bg-gradient-to-br from-blue-950/40 to-darkCard relative p-6 flex flex-col justify-between border-b border-gray-800">
+                        <div class="flex justify-between items-start">
+                            <span class="px-2.5 py-1 rounded-md bg-neonBlue/20 text-neonBlue text-[10px] font-mono border border-neonBlue/30">C / Terminal</span>
+                            <i class="fas fa-gamepad text-3xl text-neonBlue/40" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-neonBlue transition-colors">Labyrinth Engine (C)</h3>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Jogo interativo desenvolvido via terminal em linguagem C pura. Implementa alocação dinâmica de memória, pilhas/matrizes para mapa e persistência em arquivos <code class="font-mono text-gray-200">.txt</code>.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2 py-1 rounded bg-gray-800 text-[10px] font-mono text-gray-300">Linguagem C</span>
+                            <span class="px-2 py-1 rounded bg-gray-800 text-[10px] font-mono text-gray-300">Ponteiros</span>
+                            <span class="px-2 py-1 rounded bg-gray-800 text-[10px] font-mono text-gray-300">Estruturas de Dados</span>
+                            <span class="px-2 py-1 rounded bg-gray-800 text-[10px] font-mono text-gray-300">GCC / Linux</span>
+                        </div>
+                        <div class="pt-4 border-t border-gray-800 flex items-center justify-between text-xs font-mono">
+                            <button type="button" data-project="2" class="text-neonBlue hover:underline flex items-center gap-1">
+                                <i class="fas fa-circle-info" aria-hidden="true"></i> Detalhes
+                            </button>
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white flex items-center gap-1">
+                                <i class="fab fa-github" aria-hidden="true"></i> Código
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Projeto 3: StudyTracker -->
+                <article class="project-card web group bg-darkCard border border-gray-800 hover:border-neonCyan/60 rounded-2xl overflow-hidden flex flex-col transition-all hover:-translate-y-1.5">
+                    <div class="h-48 bg-gradient-to-br from-cyan-950/40 to-darkCard relative p-6 flex flex-col justify-between border-b border-gray-800">
+                        <div class="flex justify-between items-start">
+                            <span class="px-2.5 py-1 rounded-md bg-neonCyan/20 text-neonCyan text-[10px] font-mono border border-neonCyan/30">Mobile Concept</span>
+                            <i class="fas fa-mobile-screen-button text-3xl text-neonCyan/40" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-neonCyan transition-colors">StudyTracker Mobile App</h3>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Arquitetura e prototipagem de aplicativo focado em produtividade para estudantes acadêmicos, com organização de disciplinas, prazos e técnica Pomodoro.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2 py-1 rounded bg-gray-800 text-[10px] font-mono text-gray-300">UI/UX Figma</span>
+                            <span class="px-2 py-1 rounded bg-gray-800 text-[10px] font-mono text-gray-300">React Native (Estudo)</span>
+                            <span class="px-2 py-1 rounded bg-gray-800 text-[10px] font-mono text-gray-300">Arquitetura</span>
+                        </div>
+                        <div class="pt-4 border-t border-gray-800 flex items-center justify-between text-xs font-mono">
+                            <button type="button" data-project="3" class="text-neonCyan hover:underline flex items-center gap-1">
+                                <i class="fas fa-circle-info" aria-hidden="true"></i> Detalhes
+                            </button>
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white flex items-center gap-1">
+                                <i class="fab fa-github" aria-hidden="true"></i> Design
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- 5. FORMAÇÃO -->
+        <section id="education" class="scroll-mt-28 space-y-8">
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="text-xs font-mono text-neonPurple uppercase tracking-wider">// Jornada Acadêmica</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Formação &amp; Qualificações</h2>
+                <p class="text-gray-400 text-sm mt-2">Construção contínua de conhecimento técnico e certificações de mercado.</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto relative border-l-2 border-gray-800 pl-6 sm:pl-8 space-y-10">
+
+                <div class="relative group">
+                    <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-neonPurple border-4 border-darkBg group-hover:scale-125 transition-transform"></div>
+                    <div class="bg-darkCard border border-gray-800 rounded-2xl p-6 hover:border-neonPurple/50 transition-all">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                            <h3 class="font-bold text-white text-lg">Bacharelado em Ciência da Computação</h3>
+                            <span class="px-3 py-1 rounded-full bg-neonPurple/10 text-neonPurple text-xs font-mono w-fit">2023 - Cursando (5º Período)</span>
+                        </div>
+                        <p class="text-sm text-neonCyan font-medium mb-3">Pontifícia Universidade Católica de Minas Gerais (PUC Minas)</p>
+                        <p class="text-xs text-gray-400 leading-relaxed">
+                            Disciplinas destacadas: Algoritmos e Estrutura de Dados, Arquitetura de Computadores, Bancos de Dados, Engenharia de Software, Grafos e Sistemas Operacionais.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="relative group">
+                    <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-neonBlue border-4 border-darkBg group-hover:scale-125 transition-transform"></div>
+                    <div class="bg-darkCard border border-gray-800 rounded-2xl p-6 hover:border-neonBlue/50 transition-all">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                            <h3 class="font-bold text-white text-lg">Santander Cibersegurança &amp; Tecnologia</h3>
+                            <span class="px-3 py-1 rounded-full bg-neonBlue/10 text-neonBlue text-xs font-mono w-fit">2024</span>
+                        </div>
+                        <p class="text-sm text-neonBlue font-medium mb-3">Programa de Formação Complementar</p>
+                        <p class="text-xs text-gray-400 leading-relaxed">
+                            Treinamento focado nos pilares da Segurança da Informação, identificação de vulnerabilidades em aplicações, criptografia e fundamentos de resposta a incidentes.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="relative group">
+                    <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-neonCyan border-4 border-darkBg group-hover:scale-125 transition-transform"></div>
+                    <div class="bg-darkCard border border-gray-800 rounded-2xl p-6 hover:border-neonCyan/50 transition-all">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                            <h3 class="font-bold text-white text-lg">Git, GitHub &amp; REST APIs na Prática</h3>
+                            <span class="px-3 py-1 rounded-full bg-neonCyan/10 text-neonCyan text-xs font-mono w-fit">2023 - 2024</span>
+                        </div>
+                        <p class="text-sm text-neonCyan font-medium mb-3">Cursos Complementares / Certificações Web</p>
+                        <p class="text-xs text-gray-400 leading-relaxed">
+                            Aprofundamento em versionamento profissional, documentação de repositórios no GitHub, consumo e modelagem de arquiteturas baseadas em serviços REST.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 6. CONTATO -->
+        <section id="contact" class="scroll-mt-28">
+            <div class="bg-gradient-border rounded-3xl p-8 sm:p-12 relative overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+                    <!-- Informações -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <span class="text-xs font-mono text-neonPurple uppercase tracking-wider">// Vamos Conversar</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-white">Interessado em me integrar à sua equipe?</h2>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Estou ativamente procurando oportunidades de <strong class="text-white">Estágio em Desenvolvimento de Software, C/C++, Java ou Web</strong>. Ficarei muito feliz em responder dúvidas ou agendar uma conversa!
+                        </p>
+
+                        <div class="space-y-4 pt-4 text-sm font-mono">
+                            <a href="mailto:mariaclara.dev@exemplo.com" class="flex items-center gap-3 text-gray-300 hover:text-white transition-colors">
+                                <div class="w-10 h-10 rounded-xl bg-gray-800 border border-gray-700 flex items-center justify-center text-neonPurple">
+                                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500">E-mail Direto</p>
+                                    <p class="text-white">mariaclara.dev@exemplo.com</p>
+                                </div>
+                            </a>
+
+                            <a href="https://linkedin.com/in/mariaclara-dev" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-gray-300 hover:text-white transition-colors">
+                                <div class="w-10 h-10 rounded-xl bg-gray-800 border border-gray-700 flex items-center justify-center text-neonBlue">
+                                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500">LinkedIn</p>
+                                    <p class="text-white">linkedin.com/in/mariaclara-dev</p>
+                                </div>
+                            </a>
+
+                            <div class="flex items-center gap-3 text-gray-300">
+                                <div class="w-10 h-10 rounded-xl bg-gray-800 border border-gray-700 flex items-center justify-center text-neonCyan">
+                                    <i class="fas fa-location-dot" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500">Localização</p>
+                                    <p class="text-white">Belo Horizonte - MG (Remoto / Presencial)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulário -->
+                    <div class="lg:col-span-7 bg-darkBg/80 p-6 sm:p-8 rounded-2xl border border-gray-800">
+                        <form id="contactForm" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="formName" class="block text-xs font-mono text-gray-400 mb-2">Seu Nome *</label>
+                                    <input type="text" id="formName" required autocomplete="name" placeholder="Ex: João Silva" class="w-full bg-darkCard border border-gray-800 focus:border-neonPurple focus:outline-none rounded-xl px-4 py-3 text-sm text-white transition-colors">
+                                </div>
+                                <div>
+                                    <label for="formEmail" class="block text-xs font-mono text-gray-400 mb-2">Seu E-mail *</label>
+                                    <input type="email" id="formEmail" required autocomplete="email" placeholder="joao@empresa.com" class="w-full bg-darkCard border border-gray-800 focus:border-neonPurple focus:outline-none rounded-xl px-4 py-3 text-sm text-white transition-colors">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="formSubject" class="block text-xs font-mono text-gray-400 mb-2">Assunto *</label>
+                                <input type="text" id="formSubject" required placeholder="Oportunidade de Estágio / Projeto" class="w-full bg-darkCard border border-gray-800 focus:border-neonPurple focus:outline-none rounded-xl px-4 py-3 text-sm text-white transition-colors">
+                            </div>
+
+                            <div>
+                                <label for="formMessage" class="block text-xs font-mono text-gray-400 mb-2">Mensagem *</label>
+                                <textarea id="formMessage" rows="4" required placeholder="Escreva aqui sua mensagem..." class="w-full bg-darkCard border border-gray-800 focus:border-neonPurple focus:outline-none rounded-xl px-4 py-3 text-sm text-white transition-colors resize-none"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-neonPurple to-neonBlue text-white font-semibold text-sm shadow-lg hover:shadow-neonPurple/40 hover:opacity-95 transition-all flex items-center justify-center gap-2">
+                                <i class="fas fa-paper-plane" aria-hidden="true"></i> Enviar Mensagem
+                            </button>
+
+                            <p id="formStatus" role="status" class="hidden text-xs font-mono text-emerald-400"></p>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="border-t border-gray-800 bg-darkBg py-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500 font-mono">
+            <p>&copy; 2026 Maria Clara. Desenvolvido com HTML5, Tailwind CSS &amp; JavaScript puro.</p>
+            <div class="flex items-center gap-4">
+                <span>// Código Limpo &amp; Paixão por TI</span>
+                <a href="#" class="hover:text-neonPurple transition-colors"><i class="fas fa-arrow-up" aria-hidden="true"></i> Topo</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- MODAL: DETALHES DO PROJETO -->
+    <div id="projectModal" class="modal fixed inset-0 z-50 bg-black/80 backdrop-blur-sm items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
+        <div class="bg-darkCard border border-gray-800 w-full max-w-2xl rounded-2xl p-6 sm:p-8 space-y-6 relative overflow-hidden">
+            <button type="button" data-close-modal class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl" aria-label="Fechar">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+            <div id="modalContent"><!-- Conteúdo dinâmico via script.js --></div>
+        </div>
+    </div>
+
+
+    <!-- MODAL: VISUALIZADOR DE CURRÍCULO -->
+    <div id="cvModal" class="modal fixed inset-0 z-50 bg-black/80 backdrop-blur-sm items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="cvModalTitle">
+        <div class="bg-darkCard border border-gray-800 w-full max-w-3xl rounded-2xl p-6 sm:p-8 space-y-6 relative max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center border-b border-gray-800 pb-4">
+                <h3 id="cvModalTitle" class="font-bold text-white text-xl flex items-center gap-2">
+                    <i class="fas fa-file-pdf text-neonPurple" aria-hidden="true"></i> Currículo - Maria Clara
+                </h3>
+                <button type="button" data-close-modal class="text-gray-400 hover:text-white text-xl" aria-label="Fechar">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <div class="bg-gray-950 p-6 rounded-xl border border-gray-800 text-xs text-gray-300 space-y-4 font-mono leading-relaxed">
+                <div class="border-b border-gray-800 pb-3">
+                    <h2 class="text-base font-bold text-white">MARIA CLARA</h2>
+                    <p class="text-neonPurple">Estudante de Ciência da Computação | Dev C/C++ &amp; Web</p>
+                    <p class="text-gray-400 mt-1">Belo Horizonte, MG | mariaclara.dev@exemplo.com | github.com/mariaclara</p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-neonCyan uppercase mb-1">Resumo Profissional</h4>
+                    <p>Estudante do 5º período de Ciência da Computação com sólida base lógica, foco em algoritmos, estrutura de dados em C/C++ e desenvolvimento web frontend com consumo de APIs REST. Buscando estágio em desenvolvimento de software.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-neonCyan uppercase mb-1">Educação</h4>
+                    <p class="font-semibold text-white">Bacharelado em Ciência da Computação - PUC Minas</p>
+                    <p class="text-gray-400">Previsão de Formação: 2026/2</p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-neonCyan uppercase mb-1">Principais Projetos</h4>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li><strong>Portal Apoio Social:</strong> Aplicação Web responsiva em JavaScript e consumo de API REST.</li>
+                        <li><strong>Labyrinth Engine C:</strong> Sistema interativo de labirinto via terminal usando ponteiros e gerenciamento de memória em C.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-neonCyan uppercase mb-1">Habilidades Principais</h4>
+                    <p>C, C++, Java, JavaScript, HTML5, CSS3, Git, GitHub, Linux, Neovim, Estrutura de Dados, REST API.</p>
+                </div>
+            </div>
+
+            <div class="flex justify-end gap-4 pt-2">
+                <button type="button" id="downloadCvBtn" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-neonPurple to-neonBlue text-white font-semibold text-xs flex items-center gap-2 hover:opacity-90">
+                    <i class="fas fa-download" aria-hidden="true"></i> Baixar Currículo (.txt)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lógica da página -->
+    <script src="script.js"></script>
+</body>
+</html>

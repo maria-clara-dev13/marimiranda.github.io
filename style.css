@@ -1,0 +1,88 @@
+/* ==========================================================
+   Portfólio Maria Clara — estilos customizados
+   (o restante do visual vem das classes utilitárias do Tailwind)
+   ========================================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0b0f19;
+    color: #f3f4f6;
+    overflow-x: hidden;
+}
+
+/* Texto com gradiente */
+.text-gradient {
+    background: linear-gradient(135deg, #a855f7 0%, #3b82f6 50%, #06b6d4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Borda com gradiente */
+.bg-gradient-border {
+    background:
+        linear-gradient(#111827, #111827) padding-box,
+        linear-gradient(135deg, rgba(168, 85, 247, 0.5), rgba(59, 130, 246, 0.5)) border-box;
+    border: 1px solid transparent;
+}
+
+/* Cursor piscante do efeito de digitação */
+.cursor-blink::after {
+    content: '|';
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Barra de rolagem */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0b0f19;
+}
+::-webkit-scrollbar-thumb {
+    background: #1f2937;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #a855f7;
+}
+
+/* Modais: a classe .is-open controla a exibição */
+.modal {
+    display: none;
+}
+.modal.is-open {
+    display: flex;
+}
+
+/* Foco visível para navegação por teclado */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid #06b6d4;
+    outline-offset: 2px;
+}
+
+/* Respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    .cursor-blink::after,
+    .animate-pulse {
+        animation: none;
+    }
+    * {
+        transition-duration: 0.01ms !important;
+    }
+}
